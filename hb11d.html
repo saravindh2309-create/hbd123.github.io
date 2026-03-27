@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBD💙</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0a1f44, #ffffff);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: #ff4d6d;
+    animation: floatUp 5s linear infinite;
+    font-size: 20px;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-100vh);}
+}
+
+.container {
+    padding: 20px;
+}
+
+img {
+    width: 250px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+h1 {
+    color: #ffffff;
+    margin-top: 15px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow: 0 0 10px #fff;}
+    to {text-shadow: 0 0 25px #00c3ff;}
+}
+
+.message {
+    style-align=formal
+    background: rgba(255,255,255,0.9);
+    padding: 50px;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 15px;
+    line-height: 2.1;
+    font-size: 18px;
+}
+
+.cake-container {
+    margin-top: 30px;
+}
+
+.moon-cake {
+    width: 150px;
+    height: 150px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    box-shadow: 0 0 20px #000;
+}
+
+.moon-cake::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #0a1f44;
+    border-radius: 50%;
+    top: 15px;
+    left: 30px;
+}
+
+.cut {
+    animation: cutCake 1s forwards;
+}
+
+@keyframes cutCake {
+    100% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.cut-text {
+    display: none;
+    font-size: 22px;
+    margin-top: 15px;
+    color: white;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #0a1f44;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #123b7a;
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: red;
+    top: 0;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 📸 PHOTO -->
+    <img src="C:\Users\MOHANAPRIYA T\Downloads\WhatsApp Image 2026-03-28 at 12.51.54 AM.jpeg" alt="Bestie Photo">
+
+    <h1>Happy Birthday Daaa Kanja Kudukiii🩵🐒</h1>
+
+    <!-- 💬 MESSAGE -->
+  <div class="message">
+    You are truly the backbone of my life.  
+    From my Grade 8 till today, you’ve been with me in every phase, every moment.  
+    Through happiness, struggles, and everything in between — you never left my side.  
+
+    There were times when I didn’t even understand myself, but somehow you always did.  
+    You stood by me when things were easy, and even more when things were hard.  
+    Your presence in my life is something I can never replace or take for granted.  
+
+    Every laugh we shared, every small memory, every silly moment — they all mean so much to me.  
+    You turned ordinary days into unforgettable memories just by being there.  
+
+    You are not just my best friend…  
+    You are my strength when I feel weak,  
+    my calm when I feel lost,  
+    and my happiness when everything feels heavy.  
+
+    No matter how much time passes, no matter where life takes us,  
+    I know one thing will never change — our bond.  
+    It’s something so pure and strong that nothing can ever break it.  
+
+    Thank you for listening to me without judging,  
+    for supporting me without conditions,  
+    and for loving me in ways words can’t fully express.  
+
+    I feel so lucky and blessed to have you in my life.  
+    Not everyone gets a friend like you — but I did, and I’ll cherish that forever.  
+
+    On your special day, I just want you to know how much you mean to me.  
+    I wish you endless happiness, success, peace, and all the beautiful things in life.  
+
+    Keep smiling, keep shining, and keep being the amazing person you are.  
+
+    Once again, Happy Birthday 💙✨  
+   
+   I love you so much, always and forever 💫  
+</div>
+
+    <!-- 🎂 CAKE -->
+	<p> Cut it </p>
+    <div class="cake-container">
+        <div class="moon-cake" onclick="cutCake()"></div>
+        <div class="cut-text" id="cutText">✨ Make a wish! ✨</div>
+        <button onclick="playMusic()">Play Music 🎵</button>
+    </div>
+
+</div>
+
+<!-- 🎵 MUSIC -->
+<audio id="music" src="C:\Users\MOHANAPRIYA T\Downloads\WhatsApp Audio 2026-03-28 at 1.54.57 AM.mpeg"></audio>
+
+<script>
+
+/* Cake Cut */
+function cutCake() {
+    document.querySelector(".moon-cake").classList.add("cut");
+    document.getElementById("cutText").style.display = "block";
+    createConfetti();
+}
+
+/* Music */
+function playMusic() {
+    document.getElementById("music").play();
+}
+
+/* Hearts animation */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💙";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}, 500);
+
+/* Confetti */
+function createConfetti() {
+    for (let i = 0; i < 50; i++) {
+        let confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor =
+            `hsl(${Math.random()*360},100%,50%)`;
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+    }
+}
+</script>
+
+</body>
+</html>
